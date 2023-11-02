@@ -19,12 +19,9 @@ const TicTacToe = () => {
     [2, 4, 6],
   ];
 
-  // useEffect(() => {
-  //   if (gameOver) {
-  //     setPlayerDisplay(winner);
-  //   }
-  // }, [gameOver, winner]);
-
+  // This function maps over the possible winning positions to see
+  // if any of them are all 3 matching, and if they are,
+  // sets the winner to that symbol/player.
   const checkWin = (boardArray) => {
     for (let i = 0; i < winningPositions.length; i++) {
       const [a, b, c] = winningPositions[i];
@@ -56,6 +53,9 @@ const TicTacToe = () => {
     }
   };
 
+  // The computer will prioritize winning squares/ blocking players from winning
+  // if 2 other squares in the winning positions array are the same.
+  // a temp array is used to account for the react state not updating in time
   const computerTurn = (tempArray) => {
     if (gameOver) {
       return;
@@ -105,6 +105,7 @@ const TicTacToe = () => {
     }
   };
 
+  // Function ran on reset button to clear the state of the board
   const reset = () => {
     setBoard(["", "", "", "", "", "", "", "", ""]);
     setSymbol("X");
@@ -113,6 +114,8 @@ const TicTacToe = () => {
     setGameOver(false);
   };
 
+  // Function ran when a cell is clicked by a player, updating the board array state
+  // as well as changing the symbol/player to the opposite depending on 1p/2p
   const cellClicked = (i) => {
     if (gameOver) {
       return;
