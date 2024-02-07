@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 
 const TicTacToe = () => {
@@ -172,7 +172,7 @@ const TicTacToe = () => {
           }
         })}
       </div>
-      <div className="button-footer">
+      <div id="button-footer">
         <button id="reset-button" onClick={(e) => reset()}>
           Reset
         </button>

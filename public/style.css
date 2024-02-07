@@ -30,13 +30,20 @@
   border-radius: 10px;
   box-shadow: none;
 }
+#button-footer{
+  margin-top: 8px;
+}
 #reset-button{
+  background-color: rgb(1, 46, 54);
+  outline: 1px solid white;
   padding: 5px 10px;
   border-radius: 5px;
   margin: 5px;
   font-size: 1rem;
 }
 .player-button{
+  background-color: rgb(1, 46, 54);
+  outline: 1px solid white;
   padding: 5px 10px;
   border-radius: 5px;
   margin: 5px;
@@ -62,7 +69,6 @@ h3{
     align-items: center;
     width: 100px;
     height: 100px;
-    /* outline: 2px solid black; */
     border-radius: 21px;
   }
   .cell-button{
