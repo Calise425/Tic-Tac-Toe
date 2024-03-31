@@ -23,6 +23,8 @@ const TicTacToe = () => {
   // if any of them are all 3 matching, and if they are,
   // sets the winner to that symbol/player.
   const checkWin = (boardArray) => {
+    let hasEmptySquare = false;
+
     for (let i = 0; i < winningPositions.length; i++) {
       const [a, b, c] = winningPositions[i];
       if (
@@ -44,9 +46,19 @@ const TicTacToe = () => {
             setWinner("Player 2 wins!");
           }
         }
+        return; // Exit function if a winner is found
       }
     }
-    if (!boardArray.includes("")) {
+
+    // Check for empty squares
+    for (let i = 0; i < boardArray.length; i++) {
+      if (!boardArray[i]) {
+        hasEmptySquare = true;
+        break;
+      }
+    }
+
+    if (!hasEmptySquare) {
       setGameOver(true);
       setWinner("It's a tie");
       return;
@@ -62,6 +74,7 @@ const TicTacToe = () => {
     }
     for (let i = 0; i < winningPositions.length; i++) {
       const [a, b, c] = winningPositions[i];
+      // Check if 2 squares in the same 'line' are the same
       if (tempArray[a] && tempArray[a] === tempArray[b] && !tempArray[c]) {
         tempArray[c] = "O";
         setBoard(tempArray);
