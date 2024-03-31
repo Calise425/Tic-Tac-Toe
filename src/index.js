@@ -46,7 +46,7 @@ const TicTacToe = () => {
             setWinner("Player 2 wins!");
           }
         }
-        return; // Exit function if a winner is found
+        return;
       }
     }
 
